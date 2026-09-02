@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    
+    <title>Login DataBaes</title>
+    <link rel="stylesheet" href="login.css">
+
+</head>
+
+<body>
+
+    <!-- Cabecalho -->
+    <header>
+
+      <div class="logo">
+        <img src="logo.png" alt="logo">
+      </div>
+      
+      <h2 class="Nome">Mimetic Soft</h2>
+
+        <nav class="menuN">
+            <a href="#">Menu</a>
+            <a href="#">Sobre</a>
+            <a href="#">Contato</a>
+            <button class="btnLogin">Login</button>
+        </nav>
+    </header>
+
+    <!-- caixa formulário de login -->
+    <div class="wrapper">
+
+        <span class="iconeFechar"><ion-icon name="close-circle-outline"></ion-icon></span>
+
+        <div class="formulario login">
+            <h2>Login</h2>
+
+            <form action="#">
+            
+            <!-- inserir email -->
+              <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                    <input type="email" required>
+                    <label>Email</label>
+              </div>
+
+            <!-- inserir senha -->
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="key-outline"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Senha</label>
+              </div>
+
+            <!-- espaço esqueci minha senha e manter conectado -->
+              <div class="esqueciSenha">
+                <label><input type="checkbox">Manter conectado</label>
+                <a href="#">Esqueci minha senha</a>
+              </div>
+
+            <!-- botão de acesso -->
+              <button type="submit" class="btn">Login</button>
+
+            <!-- espaço criar conta -->
+              <div class="login-register">
+                <p>Não tem uma conta? <a href="#" class="register-link">Registre-se</a></p>
+              </div>
+
+            </form>
+        </div>
+
+        <!-- caixa formulário de criar conta -->
+        <div class="formulario registrar">
+            <h2>Criar conta</h2>
+
+            <form action="#">
+
+            <!-- inserir nome usuário -->
+             <div class="input-box">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <input type="text" required>
+                    <label>Nome de Usuário</label>
+              </div>
+
+            <!-- inserir email -->
+              <div class="input-box">
+                    <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
+                    <input type="email" placeholder=" " required>
+                    <label>Email</label>
+              </div>
+
+            <!-- inserir senha -->
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="key-outline"></ion-icon></span>
+                    <input type="password" placeholder=" " required>
+                    <label>Senha</label>
+              </div>
+
+            <!-- concordar termos -->
+              <div class="esqueciSenha">
+                <label><input type="checkbox">Eu concordo com os Termos & Condições</label>
+              </div>
+
+            <!-- botão criar conta -->
+              <button type="submit" class="btn">Registrar</button>
+
+            <!-- botão já tem uma conta -->
+              <div class="login-register">
+                <p>Já tem uma conta? <a href="#" class="login-link">Login</a></p>
+              </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script src="loginscript.js"></script>
+
+    <!-- ícones importados -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>
