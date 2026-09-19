@@ -20,7 +20,6 @@
     <h2 class="Nome">Mimetic Soft</h2>
 
     <nav class="menuN">
-      <a href="#">Menu</a>
       <a href="#">Sobre</a>
       <a href="#">Contato</a>
       <button class="btnLogin">Login</button>
@@ -77,21 +76,21 @@
         <!-- inserir nome usuário -->
         <div class="input-box">
           <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
-          <input type="text" required>
+          <input type="text" required id="nomeCadastro">
           <label>Nome de Usuário</label>
         </div>
 
         <!-- inserir email -->
         <div class="input-box">
           <span class="icon"><ion-icon name="mail-outline"></ion-icon></span>
-          <input type="email" placeholder=" " required>
+          <input type="email" placeholder=" " required id="emailCadastro">
           <label>Email</label>
         </div>
 
         <!-- inserir senha -->
         <div class="input-box">
           <span class="icon"><ion-icon name="key-outline"></ion-icon></span>
-          <input type="password" placeholder=" " required>
+          <input type="password" placeholder=" " required id="senhaCadastro">
           <label>Senha</label>
         </div>
 
@@ -101,8 +100,8 @@
         </div>
 
         <!-- botão criar conta -->
-        <button type="submit" class="btn">Registrar</button>
-
+        <button type="submit" class="btn" onclick="registrar()">Registrar-se</button>
+        <p id="erroCadastro"></p>
         <!-- botão já tem uma conta -->
         <div class="login-register">
           <p>Já tem uma conta? <a href="#" class="login-link">Login</a></p>

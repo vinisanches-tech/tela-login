@@ -6,35 +6,99 @@ const iconClose = document.querySelector('.iconeFechar');
 
 
 // efeitos / movimentação do formulario
-registerLink.addEventListener('click', ()=> {
+registerLink.addEventListener('click', () => {
     wrapper.classList.add('active');
 });
 
-loginLink.addEventListener('click', ()=> {
+loginLink.addEventListener('click', () => {
     wrapper.classList.remove('active');
 });
 
-btnLogin.addEventListener('click', ()=> {
+btnLogin.addEventListener('click', () => {
     wrapper.classList.add('active-popup');
 });
 
-iconClose.addEventListener('click', ()=> {
+iconClose.addEventListener('click', () => {
     wrapper.classList.remove('active-popup');
 });
 
+
+// registrar usuário
+async function registrar() {
+
+    const nome = document.getElementById('nomeCadastro').value;
+    const email = document.getElementById('emailCadastro').value;
+    const senha = document.getElementById('senhaCadastro').value;
+    const erroCadastro = document.getElementById('erroCadastro');
+
+    erroCadastro.textContent = "";
+
+
+    try {
+
+        const resposta = await fetch('http://localhost:3000/funcionarios', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                nome: nome,
+                email: email,
+                senha: senha
+            })
+        })
+
+        const dados = await resposta.json();
+
+        if (resposta.ok) {
+
+            alert("usuário cadastrado!")
+            location.href = "menu.html"
+
+        } else if (resposta.status === 409) {
+            erroCadastro.textContent = "Este email já possui cadastro. Utilize outro email"
+
+        } else {
+
+            erroCadastro.textContent = dados.erro;
+        }
+    } catch (erro) {
+        console.error(erro);
+        alert("Erro ao conectar com servidor.")
+    }
+}
+
+
 // validação login
+async function logar() {
 
-function logar(){
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
 
-    var email = document.getElementById('email').value;
-    var senha = document.getElementById('senha').value;
+    try {
+        const resposta = await fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: email,
+                senha: senha
+            })
+        })
 
-    // if de protótipo, aguardando banco de dados
+        const dados = await resposta.json();
 
-    if(email == "admin@gmail.com" && senha == "admin"){
-        alert('sucesso');
-        location.href = "menu.html";
-    } else {
-        alert('usuario nao encontrado')
+        if (resposta.ok) {
+
+            alert('Login realizado!');
+            location.href = "menu.html"
+
+        } else {
+            alert(dados.erro)
+        }
+    } catch (erro) {
+        console.error(erro);
+        alert('Não foi possível conectar com servidor.')
     }
 }
